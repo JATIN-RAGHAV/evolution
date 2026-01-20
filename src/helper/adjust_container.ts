@@ -14,9 +14,9 @@ export const adjust_container = (lines:line[], height:number, width:number):line
         }
         let cheight = max_y-min_y;
         let cwidth = max_x-min_x;
-        let factor = (height-15)/cheight;
+        let factor = (height-20)/cheight;
         if((factor*cwidth)>=width){
-                factor = (width-15)/cwidth;
+                factor = (width-20)/cwidth;
         }
         for(const line of lines){
                 res.push({

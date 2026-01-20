@@ -15,7 +15,7 @@ function App() {
         },
         {
                 layers:4,
-                branches:2,
+                branches:3,
                 del_branches:0,
                 angles:4,
                 del_angles:0,
@@ -29,7 +29,7 @@ function App() {
                 angles:4,
                 del_angles:0,
                 length:20,
-                del_length:-7,
+                del_length:-6,
         },
                 {
                 layers:4,

@@ -1,5 +1,8 @@
 import { type DNA } from "../interfaces/dna"
 import { type line } from "../interfaces/line"
+import { adjust_container } from "./adjust_container";
+import { Organism_height, Organism_width } from "./constants";
+import { translate } from "./translate_cords";
 const pixels_per_length = 10;
 
 export const make_svg = (dna:DNA):line[] => {
@@ -34,7 +37,6 @@ export const make_svg = (dna:DNA):line[] => {
                 length = length+(dna.del_length*pixels_per_length);
                 for( const line of front){
                         let angle_space = (Math.PI)/(branch+1);
-                        console.log("angle space",(180/Math.PI)*angle_space)
                         let base_angle = angle_space+angle;
                         if(i == 1){
                                 base_angle = angle_space;
@@ -50,11 +52,6 @@ export const make_svg = (dna:DNA):line[] => {
                                 const second_angle = (first_angle + Math.tan(between_angle))/(1+first_angle*Math.tan(between_angle));
                                 const x2 = line.end.x + Math.cos(second_angle)*length;
                                 const y2 = line.end.y + Math.sin(second_angle)*length;
-                                console.log("angle between",(180/Math.PI)*between_angle)
-                                console.log("angle first",(180/Math.PI)*first_angle)
-                                console.log("angle seconed",(180/Math.PI)*second_angle)
-                                let new_slope = (y2-line.end.y)/(x2-line.end.x);
-                                console.log("new slope",(180/Math.PI)*new_slope)
                                 new_front.push({
                                         start:{
                                                 x:line.end.x,
@@ -84,5 +81,7 @@ export const make_svg = (dna:DNA):line[] => {
                 angle = Math.min(9,angle+dna.del_angles);
                 branch = Math.min(9,branch+dna.del_branches);
         }
+        res = adjust_container(res, Organism_height, Organism_width)
+        res = translate(res, Organism_height, Organism_width)
         return res
 }

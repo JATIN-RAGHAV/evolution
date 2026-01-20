@@ -9,8 +9,8 @@ export const Make = (props:{dna:DNA})=>{
         let height = Organism_height;
         let width = Organism_width;
         return <>
-                <div className="border">
-                <Print_svg lines={adjust_container(lines,height,width)} height={height} width={width}/>
+                <div className={`border h-{${height}} w-{${width}} min-w-{${width+10}}`}>
+                        <Print_svg lines={adjust_container(lines,height,width)} height={height} width={width}/>
                 </div>
         </>
 }

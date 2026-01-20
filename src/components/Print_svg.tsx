@@ -1,4 +1,3 @@
-import { translate } from "../helper/translate_cords";
 import type { line } from "../interfaces/line";
 
 export const Print_svg = (props:{lines:line[], width:number, height:number}) => {
@@ -8,16 +7,14 @@ export const Print_svg = (props:{lines:line[], width:number, height:number}) => 
                 <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
                 {
                                 lines.map((e) => {
-                                        const start = translate(e.start,width,height);
-                                        const end = translate(e.end,width,height);
                                         id += 1
                                         return (
                                                 <line
                                                         id={`${id}`}
-                                                        x1={start.x}
-                                                        y1={start.y}
-                                                        x2={end.x}
-                                                        y2={end.y}
+                                                        x1={e.start.x}
+                                                        y1={e.start.y}
+                                                        x2={e.end.x}
+                                                        y2={e.end.y}
                                                         stroke="black"
                                                         strokeWidth='1'
                                                 />
