@@ -1,20 +1,139 @@
 import './App.css'
-import {Make} from './components/Make'
+import { Organ_grid } from './components/Organ_grid'
 import { type DNA } from './interfaces/dna'
 
 function App() {
-        let dna:DNA = {
-                layers:3,
+        let DNAs:DNA[] = [
+                {
+                layers:4,
                 branches:2,
-                del_branches:1,
-                angles:3,
+                del_branches:0,
+                angles:4,
                 del_angles:0,
-                length:6,
-                del_length:-1,
-        }
+                length:20,
+                del_length:-7,
+        },
+        {
+                layers:4,
+                branches:2,
+                del_branches:0,
+                angles:4,
+                del_angles:0,
+                length:20,
+                del_length:-7,
+        },
+                {
+                layers:4,
+                branches:2,
+                del_branches:0,
+                angles:4,
+                del_angles:0,
+                length:20,
+                del_length:-7,
+        },
+                {
+                layers:4,
+                branches:2,
+                del_branches:0,
+                angles:4,
+                del_angles:0,
+                length:20,
+                del_length:-7,
+        },
+                {
+                layers:4,
+                branches:2,
+                del_branches:0,
+                angles:4,
+                del_angles:0,
+                length:20,
+                del_length:-7,
+        },
+                {
+                layers:4,
+                branches:2,
+                del_branches:0,
+                angles:4,
+                del_angles:0,
+                length:20,
+                del_length:-7,
+        },
+                {
+                layers:4,
+                branches:2,
+                del_branches:0,
+                angles:4,
+                del_angles:0,
+                length:20,
+                del_length:-7,
+        },
+                {
+                layers:4,
+                branches:2,
+                del_branches:0,
+                angles:4,
+                del_angles:0,
+                length:20,
+                del_length:-7,
+        },
+                {
+                layers:4,
+                branches:2,
+                del_branches:0,
+                angles:4,
+                del_angles:0,
+                length:20,
+                del_length:-7,
+        },
+                {
+                layers:4,
+                branches:2,
+                del_branches:0,
+                angles:4,
+                del_angles:0,
+                length:20,
+                del_length:-7,
+        },
+                {
+                layers:4,
+                branches:2,
+                del_branches:0,
+                angles:4,
+                del_angles:0,
+                length:20,
+                del_length:-7,
+        },
+                {
+                layers:4,
+                branches:2,
+                del_branches:0,
+                angles:4,
+                del_angles:0,
+                length:20,
+                del_length:-7,
+        },
+                {
+                layers:4,
+                branches:2,
+                del_branches:0,
+                angles:4,
+                del_angles:0,
+                length:20,
+                del_length:-7,
+        },
+                {
+                layers:4,
+                branches:2,
+                del_branches:0,
+                angles:4,
+                del_angles:0,
+                length:20,
+                del_length:-7,
+        },
+        ]
         return (
                 <>
-                        <Make dna={dna}/>
+                        <Organ_grid DNAs={DNAs}/>
                 </>
         )
 }
