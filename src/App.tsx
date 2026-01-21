@@ -4,6 +4,7 @@ import { Organ_grid } from './components/Organ_grid'
 import { type Clicked_DNA } from './interfaces/clicked_dna'
 import { initial_dna } from './helper/initial_dna'
 import { useNavigate } from 'react-router'
+import { mutate } from './helper/mutate'
 
 function App() {
         const navigate = useNavigate()
@@ -22,30 +23,7 @@ function App() {
                         )
                 )
         }
-        const mutate = (DNA:Clicked_DNA):Clicked_DNA[] =>{
-                let res:Clicked_DNA[] =[DNA]
-                res[0].clicked = false
-                for(var key in DNA){
-                        if(key != 'clicked'){
-                                let new_value= DNA[key as keyof Clicked_DNA]
-                                if(typeof new_value == 'number'){
-                                        if(['length','layers','branches'].includes(key)){
-                                                new_value += (Math.random() > 0.5 ? 1 : -1)
-                                                new_value = Math.max(1,new_value)
-                                                new_value = Math.min(9, new_value)
-                                        }
-                                        else{
-                                                new_value += (Math.random() > 0.5 ? 1 : -1)
-                                        }
-                                }
-                                res.push({
-                                        ...DNA,
-                                        [key as keyof Clicked_DNA]:new_value,
-                                })
-                        }
-                }
-                return res
-        }
+
         useEffect(() => {
                 for(const DNA of DNAs){
                         if(DNA.clicked){
@@ -54,6 +32,7 @@ function App() {
                         }
                 }
         },[DNAs])
+
         return (
                 <>
                         <div className='h-max min-h-dvh w-dvw text-red-800 text-center pt-8 bg-black font-robot text-7xl flex flex-col justify-center'>
