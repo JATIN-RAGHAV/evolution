@@ -15,7 +15,7 @@ export const Print_svg = (props:{lines:line[], width:number, height:number}) => 
                                                         y1={e.start.y}
                                                         x2={e.end.x}
                                                         y2={e.end.y}
-                                                        stroke="black"
+                                                        stroke="#FFFFFF"
                                                         strokeWidth='1'
                                                 />
                                         )

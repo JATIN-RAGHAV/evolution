@@ -3,15 +3,16 @@ import './App.css'
 import { Organ_grid } from './components/Organ_grid'
 import { type Clicked_DNA } from './interfaces/clicked_dna'
 import { initial_dna } from './helper/initial_dna'
+import { useNavigate } from 'react-router'
 
 function App() {
+        const navigate = useNavigate()
         const [DNAs,setDNAs] = useState<Clicked_DNA[]>([{
                 ...initial_dna(),
                 clicked:false
         }])
 
         const onClick = (index:number) => {
-                console.log('clicked')
                 setDNAs(prev => 
                         prev.map((value, i) => 
                                 (i == index )? {
@@ -43,7 +44,6 @@ function App() {
                                 })
                         }
                 }
-                console.log(res)
                 return res
         }
         useEffect(() => {
@@ -53,14 +53,15 @@ function App() {
                                 setDNAs(mutated)
                         }
                 }
-                console.log(DNAs)
         },[DNAs])
         return (
                 <>
-                        <div className='text-blue-500 font-bold font-robot text-7xl flex justify-center '>
+                        <div className='h-max min-h-dvh w-dvw text-red-800 text-center pt-8 bg-black font-robot text-7xl flex flex-col justify-center'>
+                                <div onClick={() => {navigate("/")}} className='hover:cursor-pointer'>
                                 Let's Evolve
+                                </div>
+                                <Organ_grid DNAs={DNAs} onClick={onClick}/>
                         </div>
-                        <Organ_grid DNAs={DNAs} onClick={onClick}/>
                 </>
         )
 }
