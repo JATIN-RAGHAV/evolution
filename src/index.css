@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@font-face {
+        font-family: "MrRobot";
+        src: url("mr_robot.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+}
+
+.font-robot {
+        font-family:MrRobot, monospace, sans-serif;
+}

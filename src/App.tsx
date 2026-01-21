@@ -57,6 +57,9 @@ function App() {
         },[DNAs])
         return (
                 <>
+                        <div className='text-blue-500 font-bold font-robot text-7xl flex justify-center '>
+                                Let's Evolve
+                        </div>
                         <Organ_grid DNAs={DNAs} onClick={onClick}/>
                 </>
         )
